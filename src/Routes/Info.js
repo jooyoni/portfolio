@@ -30,6 +30,10 @@ const SecondCont=styled(motion.div)`
     color:white;
     display:flex;
     flex-direction: column;
+    @media screen and (max-width:600px) {
+        left:0;
+        text-align: center;
+    }
     & > span{
         font-size:7vw;
         font-weight: 900;
