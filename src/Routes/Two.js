@@ -7,12 +7,8 @@ const Container = styled.div`
     background-color: red;
 `;
 function Two(){
-    const component=useRef();
-    useEffect(()=>{
-        console.log(component.current.offsetTop)
-    },[])
     return (
-        <Container ref={component}>two</Container>
+        <Container>two</Container>
     )
 
 }

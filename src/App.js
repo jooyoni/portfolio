@@ -1,36 +1,62 @@
 
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
 import { Mousewheel, Pagination } from "swiper";
 import Info from "./Routes/Info";
 import Two from "./Routes/Two";
 import styled from "styled-components";
-
+import "swiper/css";
 const Container=styled.div`
+  font-family:"Source Sans Pro", sans-serif;
+
   .swiper-pagination{
-    position:absolute;
-    top:0;
-    left:0;
     display:flex;
-    width:100%;
-    height:50px;
-    margin:0;
-    transform: translateY(0);
+    justify-content: center;
+    background: transparent;
+    cursor: pointer;
   }
   .swiper-pagination-bullet {
-    opacity: 1;
-    background: rgba(255,255,255,1);
-    width:200px;
-    height:100%;
-    border-radius: 0px;
-    padding:0;
-    margin:0 !important;
+    margin-left:20px;
+    background-color:transparent;
+    font-weight:600;
+    font-size:16px;
+    display:flex !important;
+    justify-content: center;
+    align-items: center;
+    color:#DDCECD;
+    position:relative;
+    transition:transform 0.5s;
+    &:hover{
+      transform:scale(1.3);
+      color:#494846;
+    }
   }
-    .swiper-pagination-bullet-active {
+  .swiper-pagination-bullet-active {
+    color:red;
   }
 `;
+const Header=styled.div`
+  position:fixed;
+  top:0;
+  left:0;
+  display:flex;
+  width:100%;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 10vw;
+  box-sizing: border-box;
+  height:50px;
+  z-index:999;
+  & > div:first-child{
+    font-weight:600;
+    color:white;
+    & > span{
+      font-size: 20px;
+      font-weight:800;
+    }
+  }
+`;
+const menuList=['Home', 'About Me', 'Skills', 'Portfolio'];
 export default function App() {
   return (
     <Container>
@@ -44,17 +70,22 @@ export default function App() {
           clickable: true,
           el: '.swiper-pagination',
           renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + index + '</span>';
+            return '<span class="' + className + '">' + menuList[index] + '</span>';
         }
         }}
         modules={[Mousewheel, Pagination]}
         className="mySwiper"
         style={{width:"100%", height:"100vh"}}
-        renderBullet={true}
+        touchRatio={0}
       >
         <SwiperSlide><Info /></SwiperSlide>
         <SwiperSlide><Two /></SwiperSlide>
-        <div class="swiper-pagination"></div>
+        <SwiperSlide><Two /></SwiperSlide>
+        <SwiperSlide><Two /></SwiperSlide>
+        <Header>
+          <div><span>JooYeon</span>'s Portfolio Web Site</div>
+          <div className="swiper-pagination" ></div>
+        </Header>
       </Swiper>
     </Container>
   );
