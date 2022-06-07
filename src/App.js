@@ -77,6 +77,7 @@ export default function App() {
         className="mySwiper"
         style={{width:"100%", height:"100vh"}}
         touchRatio={0}
+        onSlideChange={(index)=>console.log(index.activeIndex)}
       >
         <SwiperSlide><Info /></SwiperSlide>
         <SwiperSlide><Two /></SwiperSlide>
