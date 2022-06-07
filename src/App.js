@@ -6,9 +6,11 @@ import Info from "./Routes/Info";
 import Two from "./Routes/Two";
 import styled from "styled-components";
 import "swiper/css";
+import { useDispatch, useSelector } from "react-redux";
+import { changeIndex, prevDelete } from "./modules/fullpageIndex";
+import AboutMe from "./Routes/AboutMe";
 const Container=styled.div`
   font-family:"Source Sans Pro", sans-serif;
-
   .swiper-pagination{
     display:flex;
     justify-content: center;
@@ -56,8 +58,15 @@ const Header=styled.div`
     }
   }
 `;
+const Fake=styled.div`
+  width:100vw;
+  height:100vh;
+`;
 const menuList=['Home', 'About Me', 'Skills', 'Portfolio'];
 export default function App() {
+  const index=useSelector(state=>state.fullpageIndex);
+  const dispatch=useDispatch();
+  console.log(index);
   return (
     <Container>
       <Swiper
@@ -77,10 +86,11 @@ export default function App() {
         className="mySwiper"
         style={{width:"100%", height:"100vh"}}
         touchRatio={0}
-        onSlideChange={(index)=>console.log(index.activeIndex)}
-      >
-        <SwiperSlide><Info /></SwiperSlide>
-        <SwiperSlide><Two /></SwiperSlide>
+        onSlideChange={(index)=>dispatch(changeIndex(index.activeIndex))}
+        onSlideChangeTransitionEnd={()=>dispatch(prevDelete())}
+        >
+        <SwiperSlide style={{border:"none"}}><Info /></SwiperSlide>
+        <SwiperSlide><AboutMe /></SwiperSlide>
         <SwiperSlide><Two /></SwiperSlide>
         <SwiperSlide><Two /></SwiperSlide>
         <Header>
