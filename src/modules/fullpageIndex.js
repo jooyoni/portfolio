@@ -1,5 +1,4 @@
 const CHANGEINDEX="CHANGEINDEX";
-const PREVDELETE="PREVDELETE";
 
 export const changeIndex=(index)=>{
     return {
@@ -7,19 +6,13 @@ export const changeIndex=(index)=>{
         index
     }
 }
-export const prevDelete=()=>{
-    return {
-        type:PREVDELETE
-    }
-}
 
-export const fullpageIndex=(state={now:0, prev:0}, action)=>{
+
+export const fullpageIndex=(state=-1, action)=>{
     switch(action.type){
         case CHANGEINDEX:
-            return {now:action.index, prev:state.now};
-        case PREVDELETE:
-            return {...state, prev:-1};
+            return action.index;
         default:
-            return {...state};
+            return -1;
     }
 }

@@ -1,13 +1,13 @@
 
+import "./App.css";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Pagination } from "swiper";
 import Info from "./Routes/Info";
 import Two from "./Routes/Two";
 import styled from "styled-components";
-import "swiper/css";
 import { useDispatch, useSelector } from "react-redux";
-import { changeIndex, prevDelete } from "./modules/fullpageIndex";
+import { changeIndex} from "./modules/fullpageIndex";
 import AboutMe from "./Routes/AboutMe";
 const Container=styled.div`
   font-family:"Source Sans Pro", sans-serif;
@@ -21,7 +21,7 @@ const Container=styled.div`
     margin-left:20px;
     background-color:transparent;
     font-weight:600;
-    font-size:16px;
+    font-size:18px;
     display:flex !important;
     justify-content: center;
     align-items: center;
@@ -86,10 +86,9 @@ export default function App() {
         className="mySwiper"
         style={{width:"100%", height:"100vh"}}
         touchRatio={0}
-        onSlideChange={(index)=>dispatch(changeIndex(index.activeIndex))}
-        onSlideChangeTransitionEnd={()=>dispatch(prevDelete())}
+        onSlideChangeTransitionEnd={(index)=>dispatch(changeIndex(index.activeIndex))}
         >
-        <SwiperSlide style={{border:"none"}}><Info /></SwiperSlide>
+        <SwiperSlide><Info /></SwiperSlide>
         <SwiperSlide><AboutMe /></SwiperSlide>
         <SwiperSlide><Two /></SwiperSlide>
         <SwiperSlide><Two /></SwiperSlide>
