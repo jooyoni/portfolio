@@ -8,12 +8,10 @@ const Container=styled.div`
     background-color: #171717;
     display:flex;
     align-items: center;
-
 `;
 const Content=styled(motion.div)`
     width:100%;
     padding:0 10vw;
-
 `;
 const Title=styled.div`
     color:white;

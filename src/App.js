@@ -1,14 +1,14 @@
-
 import "./App.css";
+import "swiper/css";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Pagination } from "swiper";
 import Info from "./Routes/Info";
-import Two from "./Routes/Two";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { changeIndex} from "./modules/fullpageIndex";
 import AboutMe from "./Routes/AboutMe";
+import Skills from "./Routes/Skills";
 const Container=styled.div`
   font-family:"Source Sans Pro", sans-serif;
   .swiper-pagination{
@@ -17,7 +17,7 @@ const Container=styled.div`
     background: transparent;
     cursor: pointer;
   }
-  .swiper-pagination-bullet {
+  .swiper-pagination-bullet{
     margin-left:20px;
     background-color:transparent;
     font-weight:600;
@@ -36,8 +36,8 @@ const Container=styled.div`
   .swiper-pagination-bullet-active {
     color:red;
   }
-`;
-const Header=styled.div`
+  `;
+  const Header=styled.div`
   position:fixed;
   top:0;
   left:0;
@@ -63,7 +63,7 @@ const Fake=styled.div`
   height:100vh;
 `;
 const menuList=['Home', 'About Me', 'Skills', 'Portfolio'];
-export default function App() {
+export default function App(){
   const index=useSelector(state=>state.fullpageIndex);
   const dispatch=useDispatch();
   console.log(index);
@@ -72,7 +72,7 @@ export default function App() {
       <Swiper
         direction={"vertical"}
         slidesPerView={1}
-        speed={800}
+        speed={700}
         spaceBetween={0}
         mousewheel={true}
         pagination={{
@@ -90,8 +90,8 @@ export default function App() {
         >
         <SwiperSlide><Info /></SwiperSlide>
         <SwiperSlide><AboutMe /></SwiperSlide>
-        <SwiperSlide><Two /></SwiperSlide>
-        <SwiperSlide><Two /></SwiperSlide>
+        <SwiperSlide><Skills /></SwiperSlide>
+        <SwiperSlide><Skills /></SwiperSlide>
         <Header>
           <div><span>JooYeon</span>'s Portfolio Web Site</div>
           <div className="swiper-pagination" ></div>
