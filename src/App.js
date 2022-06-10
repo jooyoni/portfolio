@@ -66,7 +66,6 @@ const menuList=['Home', 'About Me', 'Skills', 'Portfolio'];
 export default function App(){
   const index=useSelector(state=>state.fullpageIndex);
   const dispatch=useDispatch();
-  console.log(index);
   return (
     <Container>
       <Swiper

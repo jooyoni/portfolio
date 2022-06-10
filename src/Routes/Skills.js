@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { keyframes } from "styled-components";
-
+import { fullpageIndex } from "../modules/fullpageIndex";
+import SkillInfo from "../components/SkillInfo";
 const Container=styled.div`
     width:100%;
     height:100vh;
@@ -18,42 +21,24 @@ const Title=styled.div`
     font-size:5.5vw;
     font-family:"Poppins";
     letter-spacing: 2px;
+    margin-bottom:5vh;
 `;
-const SkillList=styled.div``;
-const keyframe=keyframes`
-    0% {
-        background:conic-gradient(#9986dd 0deg, #fbb871 0deg);
-    }
-    100%{
-        background:conic-gradient(#9986dd 360deg, #fbb871 360deg);
-    }
+const SkillList=styled.div`
+    display:flex;
+    justify-content: space-between;
 `;
-const Skill=styled.div`
-    width:300px;
-    height:300px;
-    background:conic-gradient(#9986dd 180deg, #fbb871 180deg);
-    transition:conic-gradient 10s;
-    border-radius:50%;
-    position:relative;
-    &::after{
-        position:absolute;
-        top:50%;
-        left:50%;
-        width:200px;
-        height:200px;
-        background-color: #171717;
-        border-radius:50%;
-        content:"";
-        transform: translate(-50%, -50%);
-    }
-`;
+
 const Skills=()=>{
     return (
         <Container>
             <Content>
                 <Title>SKILLS</Title>
                 <SkillList>
-                    <Skill></Skill>
+                    <SkillInfo skillName={"HTML & CSS"} percent={85} />
+                    <SkillInfo skillName={"JAVASCRIPT"} percent={70} />
+                    <SkillInfo skillName={"REACT"} percent={60} />
+                    <SkillInfo skillName={"REDUX"} percent={40} />
+                    <SkillInfo skillName={"TYPESCRIPT"} percent={10} />
                 </SkillList>
             </Content>
         </Container>

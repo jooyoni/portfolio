@@ -84,7 +84,6 @@ function AboutMe(){
     useEffect(()=>{
         if(index==1)
             setShow(true);
-        console.log("dfd")
     },[index]);
     return (
         <Container>
