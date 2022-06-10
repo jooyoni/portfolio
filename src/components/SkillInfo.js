@@ -2,17 +2,25 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-const Graph=styled.div`
+const Graph=styled.div` 
+    @media screen and (max-width:800px){
+        width:150px;
+        height:150px;
+    }
     width:200px;
     height:200px;
     border-radius:50%;
     position:relative;
-    transition:all 1s;
+    transition:all 0.5s;
     background:conic-gradient(#82bbb5 ${props=>props.percent*3.6}deg, #3a4148 ${props=>props.percent*3.6}deg);
     display:flex;
     align-items: center;
     justify-content: center;
-    margin-bottom:20px;
+    margin-bottom:10px;
+    cursor: pointer;
+    &:hover{
+        transform:scale(1.1);
+    }
     &::after{
         position:absolute;
         top:50%;
@@ -33,9 +41,10 @@ const Graph=styled.div`
 `;
 const Skill=styled.div`
     text-align: center;
+    padding:0 10px;
     & > span{
         font-weight:bold;
-        font-size:18px;
+        font-size:24px;
     }
 `;
 const SkillInfo=({skillName, percent})=>{
@@ -56,7 +65,7 @@ const SkillInfo=({skillName, percent})=>{
     },[value,index]);
     return (
         <Skill>
-            <Graph percent={value}>
+            <Graph percent={value} onClick={()=>setValue(0)}>
                 <span>{value}%</span>
             </Graph>
             <span>{skillName}</span>

@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeIndex} from "./modules/fullpageIndex";
 import AboutMe from "./Routes/AboutMe";
 import Skills from "./Routes/Skills";
+import Portfolio from "./Routes/Portfolio";
 const Container=styled.div`
   font-family:"Source Sans Pro", sans-serif;
   .swiper-pagination{
@@ -90,7 +91,7 @@ export default function App(){
         <SwiperSlide><Info /></SwiperSlide>
         <SwiperSlide><AboutMe /></SwiperSlide>
         <SwiperSlide><Skills /></SwiperSlide>
-        <SwiperSlide><Skills /></SwiperSlide>
+        <SwiperSlide><Portfolio /></SwiperSlide>
         <Header>
           <div><span>JooYeon</span>'s Portfolio Web Site</div>
           <div className="swiper-pagination" ></div>
