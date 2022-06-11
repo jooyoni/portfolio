@@ -7,8 +7,8 @@ const Graph=styled.div`
         width:150px;
         height:150px;
     }
-    width:200px;
-    height:200px;
+    width:180px;
+    height:180px;
     border-radius:50%;
     position:relative;
     transition:all 0.5s;

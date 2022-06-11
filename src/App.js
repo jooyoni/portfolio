@@ -70,23 +70,23 @@ export default function App(){
   return (
     <Container>
       <Swiper
-        direction={"vertical"}
-        slidesPerView={1}
-        speed={700}
-        spaceBetween={0}
-        mousewheel={true}
-        pagination={{
-          clickable: true,
-          el: '.swiper-pagination',
-          renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + menuList[index] + '</span>';
-        }
-        }}
-        modules={[Mousewheel, Pagination]}
-        className="mySwiper"
-        style={{width:"100%", height:"100vh"}}
-        touchRatio={0}
-        onSlideChangeTransitionEnd={(index)=>dispatch(changeIndex(index.activeIndex))}
+          direction={"vertical"}
+          slidesPerView={1}
+          speed={700}
+          spaceBetween={0}
+          mousewheel={true}
+          pagination={{
+            clickable: true,
+            el: '.swiper-pagination',
+            renderBullet: function (index, className) {
+              return '<span class="' + className + '">' + menuList[index] + '</span>';
+          }
+          }}
+          modules={[Mousewheel, Pagination]}
+          className="mySwiper"
+          style={{width:"100%", height:"100vh"}}
+          touchRatio={0}
+          onSlideChangeTransitionEnd={(index)=>dispatch(changeIndex(index.activeIndex))}
         >
         <SwiperSlide><Info /></SwiperSlide>
         <SwiperSlide><AboutMe /></SwiperSlide>
