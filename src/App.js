@@ -91,7 +91,9 @@ export default function App(){
           modules={[Mousewheel, Pagination]}
           className="mySwiper"
           style={{width:"100%", height:"100vh"}}
-          touchRatio={0}
+          allowTouchMove={true}
+          breakpointsBase={true}
+          breakpoints={{1023:{allowTouchMove:false}}}
           onSlideChangeTransitionEnd={(index)=>dispatch(changeIndex(index.activeIndex))}
         >
         <SwiperSlide><Info /></SwiperSlide>
