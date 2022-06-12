@@ -3,9 +3,13 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const Graph=styled.div` 
-    @media screen and (max-width:800px){
+    @media screen and (max-width:1200px){
         width:150px;
         height:150px;
+    }
+    @media screen and (max-width:800px){
+        width:100px;
+        height:100px;
     }
     width:180px;
     height:180px;
@@ -16,8 +20,8 @@ const Graph=styled.div`
     display:flex;
     align-items: center;
     justify-content: center;
-    margin-bottom:10px;
     cursor: pointer;
+    margin-bottom:5px;
     &:hover{
         transform:scale(1.1);
     }
@@ -34,7 +38,7 @@ const Graph=styled.div`
     }
     & > span{
         color:white;
-        font-size:30px;
+        font-size:2.3vw;
         font-weight:bold;
         z-index:10;
     }
@@ -42,9 +46,10 @@ const Graph=styled.div`
 const Skill=styled.div`
     text-align: center;
     padding:0 10px;
+    margin-bottom:3vh;
     & > span{
         font-weight:bold;
-        font-size:24px;
+        font-size:1.8vw;
     }
 `;
 const SkillInfo=({skillName, percent})=>{

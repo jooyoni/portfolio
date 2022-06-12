@@ -17,6 +17,9 @@ const Container=styled.div`
     justify-content: center;
     background: transparent;
     cursor: pointer;
+    @media screen and (max-width:800px){
+      display:none;
+    }
   }
   .swiper-pagination-bullet{
     margin-left:20px;
@@ -50,6 +53,9 @@ const Container=styled.div`
   box-sizing: border-box;
   height:50px;
   z-index:999;
+  @media screen and (max-width:800px){
+    padding:0;
+  }
   & > div:first-child{
     font-weight:600;
     color:white;

@@ -17,7 +17,7 @@ const Content=styled(motion.div)`
     transform:translateX(-50%) translateY(-50%);
     color:white;
     font-weight:800;
-    font-size:40px;
+    font-size:2.6vw;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,8 @@ const SecondCont=styled(motion.div)`
     display:flex;
     flex-direction: column;
     @media screen and (max-width:600px) {
-        left:0;
+        left:0%;
+        width:100%;
         text-align: center;
     }
     & > span{
@@ -45,7 +46,7 @@ const SecondCont=styled(motion.div)`
     & > div{
         display:flex;
         flex-direction: column;
-        font-size:30px;
+        font-size:2vw;
         font-weight:500;
         font-family: 'Dongle';
         margin-top:3vh;
@@ -63,8 +64,8 @@ function Info(){
     useEffect(()=>{
         let interval;
         const divBoxAni=async()=>{
-            await contentAni.start({width:"50%", transition:{duration:0.5, type:"linear"}});
-            await contentAni.start({height:"300px", transition:{duration:0.3, type:"linear"}});
+            await contentAni.start({width:window.innerWidth>1000?"50%":window.innerWidth>700?"70%":"90%", transition:{duration:0.5, type:"linear"}});
+            await contentAni.start({height:"16vw", transition:{duration:0.3, type:"linear"}});
             interval=setInterval(()=>{
                 setText(prev=>prev+introduce[count]);
                 setCount(prev=>prev+1);
